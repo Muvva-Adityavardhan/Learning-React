@@ -1,12 +1,15 @@
 function ListGroup() {
-	const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+	let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+	//items = []; // Uncomment this line to test the "No items found" case
 
-	// items.map(item => {
-	//     return <li className="list-group-item">{item}</li>;
-	// });
+	const message = items.length === 0 ? <p>No items found</p> : null;
 	return (
 		<>
 			<h1>ListGroup</h1>
+
+			{message}
+			{/*{items.length === 0 ? <p>No items found</p> : null} use like this directly if you want*/}
+
 			<ul className="list-group">
 				{items.map((item) => (
 					<li key={item}>{item}</li>
