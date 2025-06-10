@@ -1,15 +1,18 @@
 import { useState } from "react";
 
-function ListGroup() {
-	let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+interface ListGroupProps {
+	items: string[];
+	heading: string;
+}
 
+function ListGroup({ items, heading }: ListGroupProps) {
 	const [selectedIndex, setSelectedIndex] = useState(-1); //Called as a Hook to manage state in a functional component
 	//arr[0]; //This is the state variable, which holds the current selected index
 	//arr[1]; //This is the function to update the state variable
 
 	return (
 		<>
-			<h1>ListGroup</h1>
+			<h1>{heading}</h1>
 			{items.length === 0 && <p>No items found</p>}
 			<ul className="list-group">
 				{items.map((item, index) => (
